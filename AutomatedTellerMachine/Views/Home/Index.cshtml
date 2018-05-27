@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6 marbin-top-20">
+        <p></p>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-arrow-up"></span>Withdraw</a>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-arrow-down"></span>Deposite</a>
+        <a href="@Url.Action("Details", "CheckingAccount")" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-eye-open"></span>Check Account</a>
+    </div>
+    <div class="col-md-6 marbin-top-20">
+        <p></p>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-transfer"></span>transfer funds</a>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-bitcoin"></span>pay bill</a>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-print"></span>print statement</a>
+
+    </div>
+</div>
+
+
+
+    @*<div class="row">
+            <div class="col-md-4">
+                <h2>Register</h2>
+                <p>
+                    Register with us today and get a free pen today!
+                </p>
+                <p>@Html.ActionLink("Register", "Register", "Account", null, new {@class="btn btn-default" })</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Login</h2>
+                <p>sign into your user account</p>
+                <p>@Html.ActionLink("log in", "login", "Account", null, new { @class = "btn btn-default" })</p>
+            </div>
+        </div>*@
