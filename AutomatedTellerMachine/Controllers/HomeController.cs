@@ -8,6 +8,10 @@ namespace AutomatedTellerMachine.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult HomeScreen()
+        {
+            return View();
+        }
         
         public ActionResult Index()
         {

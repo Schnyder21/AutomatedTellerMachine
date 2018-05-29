@@ -1,0 +1,48 @@
+﻿@model AutomatedTellerMachine.Models.Withdraw
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Withdraw</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentBalance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CurrentBalance)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WhichAccount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WhichAccount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RequestedAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RequestedAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewBalance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewBalance)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+

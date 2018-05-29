@@ -10,7 +10,7 @@ namespace AutomatedTellerMachine.Models
     public class CheckingAccount
     {
         public int Id { get; set; }
-
+        
         [Required]
         [StringLength(10)]
         [Column(TypeName ="varchar")]

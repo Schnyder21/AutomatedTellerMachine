@@ -7,35 +7,40 @@ using AutomatedTellerMachine.Models;
 
 namespace AutomatedTellerMachine.Controllers
 {
-    public class CheckingAccountController : Controller
+    public class WithdrawController : Controller
     {
-        // GET: CheckingAccount
+        // GET: Withdraw
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CheckingAccount/Details/5
+        // GET: Withdraw/Details/5
         public ActionResult Details()
         {
-            var checkingAccount = new CheckingAccount { AccountNumber = "000044345", FirstName = "FirstName", LastName = "LastName", Balance = 5000000 };
-            return View(checkingAccount);
+            var withdraw = new Withdraw { WhichAccount = "Checking", CurrentBalance = 25, RequestedAmount = 5 };
+            return View(withdraw);
+            
         }
 
-        // GET: CheckingAccount/Create
+        // GET: Withdraw/Create
         public ActionResult Create()
         {
-            return View();
+            var withdraw = new Withdraw
+            {
+                CurrentBalance = 25
+            };
+            return View(withdraw);
         }
 
-        // POST: CheckingAccount/Create
+        // POST: Withdraw/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-
+      
                 return RedirectToAction("Index");
             }
             catch
@@ -44,13 +49,13 @@ namespace AutomatedTellerMachine.Controllers
             }
         }
 
-        // GET: CheckingAccount/Edit/5
+        // GET: Withdraw/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CheckingAccount/Edit/5
+        // POST: Withdraw/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -66,13 +71,13 @@ namespace AutomatedTellerMachine.Controllers
             }
         }
 
-        // GET: CheckingAccount/Delete/5
+        // GET: Withdraw/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CheckingAccount/Delete/5
+        // POST: Withdraw/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
