@@ -4,6 +4,10 @@ namespace AutomatedTellerMachine.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using AutomatedTellerMachine.Models;
+    using AutomatedTellerMachine.Services;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<AutomatedTellerMachine.Models.ApplicationDbContext>
     {
@@ -15,6 +19,22 @@ namespace AutomatedTellerMachine.Migrations
 
         protected override void Seed(AutomatedTellerMachine.Models.ApplicationDbContext context)
         {
+            var userstore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userstore);
+
+            if (!context.Users.Any(t=>t.UserName=="admin@mvcatm.com"))
+            {
+                var user = new ApplicationUser { UserName = "admin@mvcatm.com", Email = "admin@mvcatm.com" };
+                userManager.Create(user, "Password1@");
+
+                var service = new CheckingAccountService(context);
+                service.CreateCheckingAccount("admin", "user", user.Id, 2000);
+
+                context.Roles.AddOrUpdate(r => r.Name, new IdentityRole { Name = "Admin" });
+                context.SaveChanges();
+
+                userManager.AddToRole(user.Id, "Admin");
+            }
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

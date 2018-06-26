@@ -32,5 +32,7 @@ namespace AutomatedTellerMachine.Models
         }
 
         public DbSet<CheckingAccount> CheckingAccounts { get; set; }
+
+        public DbSet<Exchanges> Exchanges { get; set; }
     }
 }

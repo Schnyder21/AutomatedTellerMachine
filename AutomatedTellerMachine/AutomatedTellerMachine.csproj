@@ -197,9 +197,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckingAccountController.cs" />
+    <Compile Include="Controllers\ExchangesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\WithdrawController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,8 +216,10 @@
     <Compile Include="Models\CheckingAccount.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Withdraw.cs" />
+    <Compile Include="Models\Exchanges.cs" />
+    <Compile Include="Models\SavingsAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CheckingAccountService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -288,8 +290,7 @@
     <Content Include="Views\CheckingAccount\Details.cshtml" />
     <Content Include="Views\CheckingAccount\Create.cshtml" />
     <Content Include="Views\Home\HomeScreen.cshtml" />
-    <Content Include="Views\Withdraw\Details.cshtml" />
-    <Content Include="Views\Withdraw\Create.cshtml" />
+    <Content Include="Views\Exchanges\Deposites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

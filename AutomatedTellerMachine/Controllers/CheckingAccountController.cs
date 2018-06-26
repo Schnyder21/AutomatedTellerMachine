@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutomatedTellerMachine.Models;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Controllers
 {
+    [Authorize]
     public class CheckingAccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: CheckingAccount
         public ActionResult Index()
         {
@@ -16,12 +20,25 @@ namespace AutomatedTellerMachine.Controllers
         }
 
         // GET: CheckingAccount/Details/5
+        // set the users information on screen according to that of the users id
         public ActionResult Details()
         {
-            var checkingAccount = new CheckingAccount { AccountNumber = "000044345", FirstName = "FirstName", LastName = "LastName", Balance = 5000000 };
+            var userId = User.Identity.GetUserId();
+            var checkingAccount = db.CheckingAccounts.Where(c=> c.ApplicationUserId== userId).First();
             return View(checkingAccount);
         }
 
+        [Authorize(Roles="Admin")]
+        public ActionResult AdminDetails(int id)
+        {
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View("Details", checkingAccount);
+        }
+        //creat an administrative option so that you can access all accounts from the admin side
+        public ActionResult List()
+        {
+            return View(db.CheckingAccounts.ToList());
+        }
         // GET: CheckingAccount/Create
         public ActionResult Create()
         {
